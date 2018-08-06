@@ -7,8 +7,14 @@ sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file $
 sudo /opt/google-cloud-sdk/bin/gcloud config set project deploy-test-212203
 
 # コンテナのUPLOAD
-sudo docker tag hello-world:hello asia.gcr.io/deploy-test-212203/hello
-sudo gcloud docker -- push asia.gcr.io/deploy-test-212203/hello
+docker build -t asia.gcr.io/gyukame-197821/hello .
+sudo /opt/google-cloud-sdk/bin/gcloud docker -- push asia.gcr.io/gyukame-197821/hello
+
+# sudo docker tag hello-world:hello asia.gcr.io/deploy-test-212203/hello
+# sudo gcloud docker -- push asia.gcr.io/deploy-test-212203/hello
+
+
+
 # gcloud docker -- push asia.gcr.io/deploy-test-212203/hello .
 # docker build -t asia.gcr.io/deploy-test-212203/hello .
 # sudo /opt/google-cloud-sdk/bin/gcloud docker -- push asia.gcr.io/deploy-test-212203/hello
